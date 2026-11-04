@@ -23,7 +23,8 @@ def test_balance_closes_every_month():
     rng = np.random.default_rng(1)
     p, pet = series(rng.gamma(1.0, 50, 120)), series(rng.uniform(10, 180, 120))
     tm = thornthwaite_mather(p, pet, smax=80)
-    ds = tm.soil.diff().fillna(tm.soil.iloc[0] - 0.0)
-    assert np.allclose(tm.p, tm.runoff + tm.aet + ds)
-    assert (tm.soil >= 0).all() and (tm.soil <= 80 + 1e-9).all()
-    assert (tm.runoff >= 0).all() and (tm.aet <= tm.pet + 1e-9).all()
+    # TODO: Write the checks of this test. Balance every month: P = H + AET + dS (dS = S(t) - S(t-1),
+    #       S0 = 0). Bounds: 0 <= S <= Smax, H >= 0, AET <= PET.
+    # In: tm (DataFrame from thornthwaite_mather, Smax = 80 mm, S0 = 0)
+    # Out: assert statements (np.allclose for float comparisons)
+    raise NotImplementedError('Write the checks of this test. Balance every month: P = H + AET + dS (dS = S(t) - S(t-1), S0 = 0). Bounds: 0 <= S <= Smax, H >= 0, AET <= PET.')

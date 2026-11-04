@@ -1,7 +1,7 @@
 # EPSS 2026/27 · Part 1 (Python) course environment
-# Create:   conda env create -f epss.yml
+# Create:   conda env create -f environment.yml
 # Activate: conda activate epss
-# Update:   conda env update -f epss.yml --prune
+# Update:   conda env update -f environment.yml --prune
 name: epss
 channels:
   - conda-forge
